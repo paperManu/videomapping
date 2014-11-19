@@ -1,0 +1,54 @@
+// Splash sample configuration file
+{
+    // Default encoding for text
+    "encoding" : "UTF-8",
+
+    "world" : {
+        "framerate" : 60
+    },
+
+    "scenes" : [
+        {
+            "name" : "local",
+            "address" : "localhost",
+            "spawn" : 1,
+            "display" : 0,
+            "swapInterval" : 1
+        }
+    ],
+
+    "local" : {
+        "cam1" : {
+            "type" : "camera",
+            "size" : [1920, 1080],
+            "eye" : [-2.0, 2.0, 0.3],
+            "target" : [0.0, 0.0, 0.5],
+            "blendWidth" : 0.05,
+            "blackLevel" : 0.0,
+            "shared" : 0
+        },
+        "win1" : {"type" : "window", "fullscreen" : -1},
+
+        //"mesh" : {"type" : "mesh", "file" : "sphere.obj", "benchmark" : 0},
+        "mesh" : {"type" : "mesh_shmdata", "file" : "/tmp/anamorphose", "benchmark" : 0},
+        "object" : {"type" : "object", "sideness" : 0},
+        "image" : {"type" : "image", "file" : "photo.jpg", "benchmark" : 0, "srgb" : 1},
+        //"image" : {"type" : "image_shmdata", "file" : "/tmp/switcher_default_video_video-0"},
+        "gui" : {"type" : "gui"},
+
+        "links" : [
+            ["mesh", "object"],
+            ["object", "cam1"],
+            ["object", "cam2"],
+            ["object", "cam3"],
+            ["object", "cam4"],
+            ["object", "gui"],
+            ["image", "object"],
+            ["cam1", "win1"],
+            ["cam2", "win2"],
+            ["cam3", "win3"],
+            ["cam4", "win4"],
+            ["gui", "win1"]
+        ]
+    }
+}
