@@ -1,54 +1,130 @@
-// Splash sample configuration file
-{
-    // Default encoding for text
-    "encoding" : "UTF-8",
+{// Default encoding for text
 
-    "world" : {
-        "framerate" : 60
-    },
+   "encoding" : "UTF-8",
+   "local" : {
+      "cam1" : {
+         "blackLevel" : [ 0.0 ],
+         "blendWidth" : [ 0.05000000074505806 ],
+         "brightness" : [ 1.0 ],
+         "calibrationPoints" : [
+            [
+               1.282030820846558,
+               -0.7975710630416870,
+               -0.6666668057441711,
+               0.7350643873214722,
+               -0.7333147525787354,
+               1
+            ],
+            [
+               -0.7179690599441528,
+               -0.2481884509325027,
+               -0.9999998211860657,
+               -0.3036709725856781,
+               -0.9667362570762634,
+               1
+            ],
+            [
+               -0.7179687023162842,
+               -0.5797037482261658,
+               1.000000238418579,
+               -0.3825644254684448,
+               0.9047327041625977,
+               1
+            ],
+            [
+               1.282031297683716,
+               -0.4974492192268372,
+               0.9999998211860657,
+               0.7250643968582153,
+               0.967956542968750,
+               1
+            ],
+            [
+               -0.05130205675959587,
+               -0.7540263533592224,
+               1.000000119209290,
+               -0.02968381717801094,
+               0.9442464709281921,
+               1
+            ],
+            [
+               0.2820310294628143,
+               -0.5234791040420532,
+               -0.3333333134651184,
+               0.1803161054849625,
+               -0.3819969594478607,
+               1
+            ]
+         ],
+         "colorTemperature" : [ 65.0 ],
+         "eye" : [ 0.7780167460441589, -7.247521400451660, 0.2526393532752991 ],
+         "fov" : [ 17.68123245239258 ],
+         "principalPoint" : [ 0.535511851310730, 0.03689841926097870 ],
+         "shared" : [ 0 ],
+         "size" : [ 854.0, 480.0 ],
+         "target" : [ 0.008405805565416813, -0.0005675532738678157, -0.9999645352363586 ],
+         "type" : "camera",
+         "up" : [ -0.1018357202410698, 0.9948002099990845, -0.001420663786120713 ]
+      },//"image" : {"type" : "image_shmdata", "file" : "/tmp/switcher_default_video_video-0"},
 
-    "scenes" : [
-        {
-            "name" : "local",
-            "address" : "localhost",
-            "spawn" : 1,
-            "display" : 0,
-            "swapInterval" : 1
-        }
-    ],
-
-    "local" : {
-        "cam1" : {
-            "type" : "camera",
-            "size" : [1920, 1080],
-            "eye" : [-2.0, 2.0, 0.3],
-            "target" : [0.0, 0.0, 0.5],
-            "blendWidth" : 0.05,
-            "blackLevel" : 0.0,
-            "shared" : 0
-        },
-        "win1" : {"type" : "window", "fullscreen" : -1},
-
-        //"mesh" : {"type" : "mesh", "file" : "sphere.obj", "benchmark" : 0},
-        "mesh" : {"type" : "mesh_shmdata", "file" : "/tmp/anamorphose", "benchmark" : 0},
-        "object" : {"type" : "object", "sideness" : 0},
-        "image" : {"type" : "image", "file" : "photo.jpg", "benchmark" : 0, "srgb" : 1},
-        //"image" : {"type" : "image_shmdata", "file" : "/tmp/switcher_default_video_video-0"},
-        "gui" : {"type" : "gui"},
-
-        "links" : [
-            ["mesh", "object"],
-            ["object", "cam1"],
-            ["object", "cam2"],
-            ["object", "cam3"],
-            ["object", "cam4"],
-            ["object", "gui"],
-            ["image", "object"],
-            ["cam1", "win1"],
-            ["cam2", "win2"],
-            ["cam3", "win3"],
-            ["cam4", "win4"],
-            ["gui", "win1"]
-        ]
-    }
+      "gui" : {
+         "type" : "gui"
+      },
+      "image" : {
+         "benchmark" : 0,
+         "file" : "photo.jpg",
+         "flip" : [ 0 ],
+         "flop" : [ 0 ],
+         "srgb" : [ 1 ],
+         "type" : "image"
+      },
+      "links" : [
+         [ "mesh", "object" ],
+         [ "object", "cam1" ],
+         [ "object", "cam2" ],
+         [ "object", "cam3" ],
+         [ "object", "cam4" ],
+         [ "object", "gui" ],
+         [ "image", "object" ],
+         [ "cam1", "win1" ],
+         [ "cam2", "win2" ],
+         [ "cam3", "win3" ],
+         [ "cam4", "win4" ],
+         [ "gui", "win0" ]
+      ], //"mesh" : {"type" : "mesh", "file" : "sphere.obj", "benchmark" : 0},
+      "mesh" : {
+         "benchmark" : 0,
+         "file" : "/tmp/anamorphose",
+         "type" : "mesh_shmdata"
+      },
+      "object" : {
+         "fill" : [ "texture" ],
+         "position" : [ 0.0, 0.0, 0.0 ],
+         "scale" : [ 1.0, 1.0, 1.0 ],
+         "sideness" : [ 0 ],
+         "type" : "object"
+      },
+      //"win0" : {
+      //   "fullscreen" : [ -1 ],
+      //   "layout" : [ 0, 0, 0, 0 ],
+      //   "type" : "window"
+      //},
+      "win1" : {
+         "fullscreen" : [ 1 ],
+         "layout" : [ 0, 0, 0, 0 ],
+         "type" : "window"
+      }
+   },
+   "scenes" : [
+      {
+         "address" : "localhost",
+         "display" : 0,
+         "name" : "local",
+         "spawn" : 1,
+         "swapInterval" : 1
+      }
+   ],
+   "world" : {
+      "framerate" : 60
+   }
 }
